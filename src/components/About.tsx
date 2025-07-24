@@ -47,7 +47,7 @@ export default function About() {
 					<div className="relative">
 						<div className="bg-white/10 rounded-2xl p-1 animate-float">
 							<Image
-								src="/moon-lounge-about.jpg"
+								src="/moon-shop.jpg"
 								alt="Moon Lounge Toronto luxury hookah lounge interior with premium shisha setup"
 								className="w-full h-96 object-fill rounded-2xl"
 								loading="lazy"
