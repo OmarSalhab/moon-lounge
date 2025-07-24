@@ -46,13 +46,7 @@ export default function Location() {
 										>
 											+1 647-809-9552
 										</a>
-										<br />
-										<a
-											href="tel:+14167510962"
-											className="text-gray-300 hover:text-white transition-colors"
-										>
-											+1 416-751-0962
-										</a>
+										
 									</div>
 								</div>
 

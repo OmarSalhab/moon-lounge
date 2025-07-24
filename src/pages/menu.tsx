@@ -142,7 +142,7 @@ const menuItems: MenuItem[] = [
 		category: "drinks",
 		drinkType: "cold",
 		name: "Barbican",
-		price: 6.0,
+		price: 8,
 		description:
 			"Non-alcoholic malt beverage with a rich, refreshing taste. Perfect complement to your hookah session.",
 		image: "/barbican.jpg",
@@ -222,7 +222,7 @@ const menuItems: MenuItem[] = [
 		price: 5.0,
 		description:
 			"Classic iced tea with a refreshing lemon flavor. Light and thirst-quenching.",
-		image: "/nestea-peach.jpg",
+		image: "/nesta-lemon.jpg",
 		bestSeller: false,
 	},
 	{
@@ -307,6 +307,17 @@ const menuItems: MenuItem[] = [
 		id: 24,
 		category: "drinks",
 		drinkType: "hot",
+		name: "Nescafe",
+		price: 7.0,
+		description:
+			"Instant coffee made with premium Nescafe blend. Quick, convenient, and satisfying.",
+		image: "/Coffee.jpg",
+		bestSeller: false,
+	},
+	{
+		id: 25,
+		category: "drinks",
+		drinkType: "hot",
 		name: "Black Tea",
 		price: 6.0,
 		description:
@@ -315,7 +326,7 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 25,
+		id: 26,
 		category: "drinks",
 		drinkType: "hot",
 		name: "Green Tea",
@@ -326,7 +337,7 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 26,
+		id: 27,
 		category: "drinks",
 		drinkType: "hot",
 		name: "Peppermint Tea",
@@ -337,14 +348,16 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 27,
+		id: 28,
 		category: "drinks",
 		drinkType: "hot",
-		name: "Nescafe",
+		name: "Teapot (Serves 4)",
 		price: 7.0,
-		description:
-			"Instant coffee made with premium Nescafe blend. Quick, convenient, and satisfying.",
-		image: "/Coffee.jpg",
+		description: `Choose your favorite tea:
+	Black Tea, 
+	Green Tea, 
+		Peppermint Tea`,
+		image: "/teapot.jpg",
 		bestSeller: false,
 	},
 ];
@@ -668,22 +681,36 @@ const MenuCard = ({ item }: { item: MenuItem }) => {
 					src={item.image || "/placeholder.svg"}
 					alt={item.name}
 					fill
-					className="object-fill transition-transform duration-300 hover:scale-104"
+					className="object-fill transition-transform duration-300 hover:scale-104 focus:scale-104"
 					loading="lazy"
 				/>
 			</div>
 
 			<CardContent className="p-6">
 				<div className="flex justify-between items-start mb-3">
-					<h3 className="text-xl font-serif font-semibold text-gray-900">
-						{item.name}
-					</h3>
-					<span className="font-bold text-lg text-[#2b347b]">
-						${item.price.toFixed(2)}
-					</span>
+					{item.name === "Barbican" ? (
+						<h3 className="text-xl font-serif font-semibold text-gray-900">
+							{item.name}{" "}
+							<span className="text-sm text-gray-700 ml-1">
+								( we have several flavors )
+							</span>
+						</h3>
+					) : (
+						<h3 className="text-xl font-serif font-semibold text-gray-900">
+							{item.name}
+						</h3>
+					)}
+
+					{item.category === "shisha" ? (
+						<span className="font-bold text-lg text-[#2b347b]">
+							${item.price.toFixed(2)}
+						</span>
+					) : (
+						<></>
+					)}
 				</div>
 
-				<p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
+				<p className="text-gray-600 text-[12.5px] sm:text-sm leading-relaxed mb-4 line-clamp-3">
 					{item.description}
 				</p>
 
@@ -700,7 +727,7 @@ const MenuCard = ({ item }: { item: MenuItem }) => {
 
 			{/* Detailed View Overlay - Only for Shisha */}
 			{showDetails && item.category === "shisha" && (
-				<div className="absolute inset-0 bg-[#2b347b] z-20 flex flex-col p-4 animate-in slide-in-from-bottom duration-300 hide-scrollbar overflow-y-auto">
+				<div className="absolute  inset-0 bg-[#2b347b] z-20 flex flex-col p-3 animate-in slide-in-from-bottom duration-300 hide-scrollbar overflow-y-auto">
 					<Button
 						variant="ghost"
 						size="sm"
@@ -724,7 +751,7 @@ const DetailedView = ({ item }: { item: MenuItem }) => {
 	};
 
 	return (
-		<div className="text-white space-y-4 max-h-96 overflow-y-auto hide-scrollbar">
+		<div className="text-white space-y-4  max-h-[86%] overflow-y-auto hide-scrollbar">
 			{/* Available Add-ons Section */}
 			<div>
 				<h4 className="font-bold text-base mb-3 text-blue-300 flex items-center">
@@ -746,7 +773,7 @@ const DetailedView = ({ item }: { item: MenuItem }) => {
 					))}
 				</div>
 			</div>
-
+			<hr className="bg-gray-950 w-48 " />
 			{/* Flavours Section */}
 			<div>
 				<h4 className="font-bold text-base mb-3 text-blue-300 flex items-center">
@@ -757,7 +784,7 @@ const DetailedView = ({ item }: { item: MenuItem }) => {
 					{flavours.map((group: FlavourGroup) => (
 						<div key={group.category}>
 							<h5
-								className={` text-md font-extrabold uppercase tracking-wider mb-2 ${
+								className={` text-sm font-extrabold uppercase tracking-wider mb-2 ${
 									categoryColors[group.category] || "text-blue-300"
 								}`}
 							>
@@ -782,9 +809,9 @@ const DetailedView = ({ item }: { item: MenuItem }) => {
 							</div>
 						</div>
 					))}
-					<div className="my-3 font-sans text-yellow-500 uppercase">
-						<span className="text-2xl text-red-800">*</span> You can add your
-						own mixs <span className="text-2xl text-red-800">*</span>
+					<div className="my-3 font-sans text-yellow-500 uppercase text-sm">
+						<span className="text-xl text-red-800">*</span> You can add your own
+						mixes <span className="text-xl text-red-800">*</span>
 					</div>
 				</div>
 			</div>

@@ -13,7 +13,7 @@ export default function Hero() {
       {/* Background Video */}
       <div className="absolute inset-0">
         <video
-          className="absolute inset-0 w-full h-full object-fill"
+          className="absolute inset-0 w-full h-full object-contain"
           autoPlay
           muted
           loop
