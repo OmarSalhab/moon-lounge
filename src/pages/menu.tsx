@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { Plus, Star, Flame, Snowflake, Coffee } from "lucide-react";
+import {
+	Plus,
+	Star,
+	Flame,
+	Snowflake,
+	Coffee,
+	BottleWine,
+	Beer,
+} from "lucide-react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -14,7 +22,7 @@ type Addon = {
 
 type MenuItem = {
 	id: number;
-	category: "shisha" | "drinks";
+	category: "shisha" | "cBeverages" | "hBeverages";
 	name: string;
 	price: number;
 	description: string;
@@ -37,7 +45,8 @@ type FlavourGroup = {
 const menuCategories = [
 	{ id: "all", name: "All Menu" },
 	{ id: "shisha", name: "Shisha" },
-	{ id: "drinks", name: "Drinks" },
+	{ id: "cBeverages", name: "Cold Beverages" },
+	{ id: "hBeverages", name: "Hot Beverages" },
 ];
 
 const addons: Addon[] = [
@@ -125,32 +134,10 @@ const menuItems: MenuItem[] = [
 		flavours: ["Mint", "Double Apple", "Grape", "Lemon"],
 		bestSeller: false,
 	},
-	// Cold Drinks
+	// Cold Beverages
 	{
 		id: 8,
-		category: "drinks",
-		drinkType: "cold",
-		name: "Redbull",
-		price: 8.0,
-		description:
-			"Classic energy drink to boost your energy and keep you refreshed throughout your visit.",
-		image: "/redbull.jpg",
-		bestSeller: false,
-	},
-	{
-		id: 9,
-		category: "drinks",
-		drinkType: "cold",
-		name: "Barbican",
-		price: 8,
-		description:
-			"Non-alcoholic malt beverage with a rich, refreshing taste. Perfect complement to your hookah session.",
-		image: "/barbican.jpg",
-		bestSeller: false,
-	},
-	{
-		id: 10,
-		category: "drinks",
+		category: "cBeverages",
 		drinkType: "cold",
 		name: "Blueberry Redbull Summer Edition",
 		price: 9.0,
@@ -160,19 +147,19 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 11,
-		category: "drinks",
+		id: 9,
+		category: "cBeverages",
 		drinkType: "cold",
-		name: "Mocha Ice Coffee",
+		name: "Ice Vanilla Latte",
 		price: 12.0,
 		description:
-			"Rich espresso blended with chocolate and served over ice. Perfect for coffee lovers seeking a cool treat.",
-		image: "/iced-mocha-coffee-1.jpg",
+			"Smooth espresso blended with creamy milk and a hint of vanilla, served over ice for a refreshing, sweet pick-me-up.",
+		image: "/Iced-Vanilla-Latte-1.jpeg",
 		bestSeller: false,
 	},
 	{
-		id: 12,
-		category: "drinks",
+		id: 10,
+		category: "cBeverages",
 		drinkType: "cold",
 		name: "Mango Juice",
 		price: 10.0,
@@ -182,10 +169,21 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 13,
-		category: "drinks",
+		id: 11,
+		category: "cBeverages",
 		drinkType: "cold",
-		name: "Mojito",
+		name: "Fresh Mixed Berries Juice",
+		price: 13.0,
+		description:
+			"Blend of fresh strawberries, blueberries, and raspberries. Packed with vitamins and natural sweetness.",
+		image: "/mixed-berry-julius-5.jpg",
+		bestSeller: false,
+	},
+	{
+		id: 12,
+		category: "cBeverages",
+		drinkType: "cold",
+		name: "Regular Mojito",
 		price: 14.0,
 		description:
 			"Classic refreshing mojito with fresh mint, lime, and sparkling water. Non-alcoholic and invigorating.",
@@ -193,8 +191,19 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
+		id: 13,
+		category: "cBeverages",
+		drinkType: "cold",
+		name: "Blueberry Mojito Summer Edition",
+		price: 14.0,
+		description:
+			"A zesty twist on the classic! Fresh mint, tangy lime, and juicy blueberries come together with a splash of soda for the ultimate summer refreshment.",
+		image: "/Blueberry-Mojito-4.jpg",
+		bestSeller: false,
+	},
+	{
 		id: 14,
-		category: "drinks",
+		category: "cBeverages",
 		drinkType: "cold",
 		name: "Pomegranate Mojito Summer Edition",
 		price: 16.0,
@@ -203,20 +212,91 @@ const menuItems: MenuItem[] = [
 		image: "/pomegrante-mojito.jpg",
 		bestSeller: false,
 	},
+
+	// Barbican section
 	{
 		id: 15,
-		category: "drinks",
+		category: "cBeverages",
 		drinkType: "cold",
-		name: "Fresh Mix Berries Juice",
-		price: 13.0,
+		name: "Barbican Raspberry",
+		price: 8.0,
 		description:
-			"Blend of fresh strawberries, blueberries, and raspberries. Packed with vitamins and natural sweetness.",
-		image: "/mixed-berry-julius-5.jpg",
+			"Non-alcoholic malt beverage with a rich, refreshing taste. Perfect complement to your hookah session.",
+		image: "/barbican-raspberry-flavour.jpg",
 		bestSeller: false,
 	},
 	{
 		id: 16,
-		category: "drinks",
+		category: "cBeverages",
+		drinkType: "cold",
+		name: "Barbican Peach",
+		price: 8,
+		description:
+			"Non-alcoholic malt beverage with a rich, refreshing taste. Perfect complement to your hookah session.",
+		image: "/Barbican_Peach.jpg",
+		bestSeller: false,
+	},
+	{
+		id: 17,
+		category: "cBeverages",
+		drinkType: "cold",
+		name: "Barbican Pineapple",
+		price: 8,
+		description:
+			"Non-alcoholic malt beverage with a rich, refreshing taste. Perfect complement to your hookah session.",
+		image: "/barbican_pineapple.jpg",
+		bestSeller: false,
+	},
+	{
+		id: 18,
+		category: "cBeverages",
+		drinkType: "cold",
+		name: "Barbican Pomegranate",
+		price: 8,
+		description:
+			"Non-alcoholic malt beverage with a rich, refreshing taste. Perfect complement to your hookah session.",
+		image: "/barbican_pomegranate.jpg",
+		bestSeller: false,
+	},
+	{
+		id: 19,
+		category: "cBeverages",
+		drinkType: "cold",
+		name: "Barbican Apple",
+		price: 8,
+		description:
+			"Non-alcoholic malt beverage with a rich, refreshing taste. Perfect complement to your hookah session.",
+		image: "/barbican_apple.jpg",
+		bestSeller: false,
+	},
+	{
+		id: 20,
+		category: "cBeverages",
+		drinkType: "cold",
+		name: "Barbican Strawberry",
+		price: 8,
+		description:
+			"Non-alcoholic malt beverage with a rich, refreshing taste. Perfect complement to your hookah session.",
+		image: "/Barbican_strawberry.jpg",
+		bestSeller: false,
+	},
+
+	//Cans beverages
+	{
+		id: 21,
+		category: "cBeverages",
+		drinkType: "cold",
+		name: "Redbull",
+		price: 8,
+		description:
+			"Classic energy drink to boost your energy and keep you refreshed throughout your visit.",
+		image: "/redbull.jpg",
+		bestSeller: false,
+	},
+
+	{
+		id: 22,
+		category: "cBeverages",
 		drinkType: "cold",
 		name: "Nestea",
 		price: 5.0,
@@ -226,8 +306,8 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 17,
-		category: "drinks",
+		id: 23,
+		category: "cBeverages",
 		drinkType: "cold",
 		name: "Coca Cola",
 		price: 5.0,
@@ -237,8 +317,8 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 18,
-		category: "drinks",
+		id: 24,
+		category: "cBeverages",
 		drinkType: "cold",
 		name: "Diet Coke",
 		price: 5.0,
@@ -248,19 +328,19 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 19,
-		category: "drinks",
+		id: 25,
+		category: "cBeverages",
 		drinkType: "cold",
 		name: "Orange Crush",
 		price: 5.0,
 		description:
 			"Vibrant orange soda with a burst of citrus flavor. Sweet, tangy, and refreshing.",
-		image: "/orange-crush.jpg",
+		image: "/orange_crush.jpg",
 		bestSeller: false,
 	},
 	{
-		id: 20,
-		category: "drinks",
+		id: 26,
+		category: "cBeverages",
 		drinkType: "cold",
 		name: "Sprite",
 		price: 5.0,
@@ -270,8 +350,19 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 21,
-		category: "drinks",
+		id: 27,
+		category: "cBeverages",
+		drinkType: "cold",
+		name: "Canada Dry",
+		price: 5.0,
+		description:
+			"Crisp and refreshing ginger ale with a smooth, bubbly finish — a classic thirst-quencher.",
+		image: "/canda-dry.jpg",
+		bestSeller: false,
+	},
+	{
+		id: 28,
+		category: "cBeverages",
 		drinkType: "cold",
 		name: "Water",
 		price: 3.0,
@@ -280,21 +371,22 @@ const menuItems: MenuItem[] = [
 		image: "/water.png",
 		bestSeller: false,
 	},
+
 	// Hot Drinks
 	{
-		id: 22,
-		category: "drinks",
+		id: 29,
+		category: "hBeverages",
 		drinkType: "hot",
 		name: "Espresso",
 		price: 8.0,
 		description:
 			"Rich, bold espresso shot made from premium coffee beans. Perfect for coffee purists.",
-		image: "/crema-espresso-shots.jpg",
+		image: "/expresso.jpg",
 		bestSeller: false,
 	},
 	{
-		id: 23,
-		category: "drinks",
+		id: 30,
+		category: "hBeverages",
 		drinkType: "hot",
 		name: "Cappuccino",
 		price: 10.0,
@@ -304,10 +396,21 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 24,
-		category: "drinks",
+		id: 30,
+		category: "hBeverages",
 		drinkType: "hot",
-		name: "Nescafe",
+		name: "Turkish Coffee",
+		price: 8.0,
+		description:
+			"Rich, bold, and aromatic — a traditional brew served unfiltered for a deep and authentic flavor. Best enjoyed slowly.",
+		image: "/turkish_coffee.jpg",
+		bestSeller: false,
+	},
+	{
+		id: 32,
+		category: "hBeverages",
+		drinkType: "hot",
+		name: "Nescafé 3 in 1",
 		price: 7.0,
 		description:
 			"Instant coffee made with premium Nescafe blend. Quick, convenient, and satisfying.",
@@ -315,8 +418,8 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 25,
-		category: "drinks",
+		id: 33,
+		category: "hBeverages",
 		drinkType: "hot",
 		name: "Black Tea",
 		price: 6.0,
@@ -326,8 +429,8 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 26,
-		category: "drinks",
+		id: 34,
+		category: "hBeverages",
 		drinkType: "hot",
 		name: "Green Tea",
 		price: 6.0,
@@ -337,8 +440,8 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 27,
-		category: "drinks",
+		id: 35,
+		category: "hBeverages",
 		drinkType: "hot",
 		name: "Peppermint Tea",
 		price: 7.0,
@@ -348,8 +451,8 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 28,
-		category: "drinks",
+		id: 36,
+		category: "hBeverages",
 		drinkType: "hot",
 		name: "Teapot (Serves 4)",
 		price: 7.0,
@@ -364,28 +467,25 @@ const menuItems: MenuItem[] = [
 
 const flavours: FlavourGroup[] = [
 	{
-		category: "Regular Flavours",
+		category: `🌿 Classic Flavours`,
 		items: [
-			{ name: "Blueberry Mint" },
-			{ name: "Watermelon Mint" },
+			{ name: "Double Apple" },
 			{ name: "Gum Mint" },
 			{ name: "Orange Mint" },
-			{ name: "Lemon Mint" },
-			{ name: "Grape Mint" },
-			{ name: "Double Apple" },
 			{ name: "Orange Cream" },
-			{ name: "Kiwi" },
-			{ name: "Pan" },
+			{ name: "Lemon Mint" },
+			{ name: "Blueberry Mint" },
+			{ name: " Watermelon Mint" },
+			{ name: "Grape Mint" },
 			{ name: "Mint" },
+			{ name: "Kiwi" },
 		],
 	},
 	{
-		category: "Premium Flavours",
+		category: "🍁 Special Flavours",
 		items: [
-			{
-				name: "Love 66",
-				description: "Passion fruit, honeydew melon, watermelon, and mint",
-			},
+			{ name: "Pan" },
+			{ name: "Chief Commissioner" },
 			{
 				name: "Skyfall",
 				description: "Juicy watermelon, sweet peach, and menthol",
@@ -395,29 +495,51 @@ const flavours: FlavourGroup[] = [
 				description: "Fresh melon, tart blueberry, and cool menthol",
 			},
 			{
-				name: "Blue Dragon",
-				description:
-					"Passion fruit, ripe and juicy melon, a delicate note of rose",
+				name: "Love 66",
+				description: "Passion fruit, honeydew melon, watermelon, and mint",
 			},
 			{ name: "Hawaii", description: "Mango, pineapple, and menthol" },
 			{
 				name: "Lady Killer",
 				description: "Honeydew melon, mango, berries, and mint",
 			},
+			{
+				name: "Blue Dragon",
+				description:
+					"Passion fruit, ripe and juicy melon, a delicate note of rose",
+			},
 		],
 	},
 	{
-		category: "Special Flavours",
+		category: "💡 Lit Series",
 		items: [
-			{ name: "Sprite", description: "Citrus" },
-			{ name: "GoGreen", description: "Citrus & Fruity" },
-			{ name: "Lime Cola", description: "Citrus & Cola" },
-			{ name: "Hayatii", description: "Sweet & Fruity" },
-			{ name: "Berry Lychee Blast", description: "Sweet Sour" },
-			{ name: "Citrus God", description: "Strong Citrus" },
-			{ name: "Chocolicious", description: "Dessert" },
-			{ name: "Jinx" },
+			{ name: "Lime Lit" },
+			{ name: "Blue Lit" },
+			{ name: "Peach Lit" },
+			{ name: "Watermelon Lit" },
+		],
+	},
+	{
+		category: "✨ Premium Flavours",
+		items: [
+			{ name: "Go Green" },
 			{ name: "Phenomenal" },
+			{ name: "Berry Lychee Blast" },
+			{ name: "Ice Lemon Mint" },
+			{ name: "Pinkman" },
+			{ name: "Kiwi Smoothie" },
+			{ name: "Tropic Juice" },
+			{ name: "Blackberry" },
+			{ name: "Raspberry" },
+			{ name: "Strawberry Lychee" },
+			{ name: "Lemon Lime" },
+			{ name: "Orange Team" },
+			{ name: "Melonade" },
+			{ name: "Forest Berries" },
+			{ name: "Cola" },
+			{ name: "Citrus God" },
+			{ name: "Chocolicious" },
+			{ name: "Super Mint Ultra Nova (Ice)" },
 		],
 	},
 ];
@@ -432,13 +554,13 @@ export default function Menu() {
 
 	// Separate drinks into cold and hot when drinks category is selected
 	const coldDrinks = filteredItems.filter(
-		(item) => item.category === "drinks" && item.drinkType === "cold"
+		(item) => item.category === "cBeverages" && item.drinkType === "cold"
 	);
 	const hotDrinks = filteredItems.filter(
-		(item) => item.category === "drinks" && item.drinkType === "hot"
+		(item) => item.category === "hBeverages" && item.drinkType === "hot"
 	);
 	const nonDrinkItems = filteredItems.filter(
-		(item) => item.category !== "drinks"
+		(item) => item.category !== "cBeverages" && item.category !== "hBeverages"
 	);
 
 	return (
@@ -508,7 +630,7 @@ export default function Menu() {
 									className={`transition-all duration-300 ${
 										selectedCategory === category.id
 											? "bg-[#2b347b] text-white border-[#2b347b] hover:bg-[#2b347b]/90"
-											: "bg-transparent text-white border-white hover:bg-white hover:text-black"
+											: "bg-transparent text-white border-white hover:bg-white hover:text-red-700"
 									}`}
 								>
 									{category.name}
@@ -530,7 +652,7 @@ export default function Menu() {
 							)}
 
 							{/* Cold Drinks Section */}
-							{selectedCategory === "drinks" && coldDrinks.length > 0 && (
+							{selectedCategory === "cBeverages" && coldDrinks.length > 0 && (
 								<div>
 									<div className="text-center mb-8">
 										<div className="flex items-center justify-center gap-3 mb-4">
@@ -541,19 +663,69 @@ export default function Menu() {
 											<Snowflake className="w-8 h-8 text-blue-400" />
 										</div>
 										<p className="text-lg text-gray-300">
-											Refreshing beverages to cool you down
+											Refreshing beverages and mixes to cool you down
 										</p>
 									</div>
 									<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
-										{coldDrinks.map((item) => (
-											<MenuCard key={item.id} item={item} />
-										))}
+										{coldDrinks.map(
+											(item) =>
+												item.id <= 14 && <MenuCard key={item.id} item={item} />
+										)}
+									</div>
+								</div>
+							)}
+
+							{/* Barbican Section */}
+							{selectedCategory === "cBeverages" && coldDrinks.length > 0 && (
+								<div>
+									<div className="text-center mb-8">
+										<div className="flex items-center justify-center gap-3 mb-4">
+											<Beer className="w-8 h-8 text-green-500" />
+											<h2 className="text-3xl md:text-4xl font-serif font-bold text-white">
+												Barbican (Non-Alcoholic Malt)
+											</h2>
+											<Beer className="w-8 h-8 text-green-500" />
+										</div>
+										<p className="text-lg text-gray-300">
+											beverage with a rich, unique, refreshing taste.
+										</p>
+									</div>
+									<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
+										{coldDrinks.map(
+											(item) =>
+												item.id > 14 &&
+												item.id <= 20 && <MenuCard key={item.id} item={item} />
+										)}
+									</div>
+								</div>
+							)}
+
+							{/* Cans Section */}
+							{selectedCategory === "cBeverages" && coldDrinks.length > 0 && (
+								<div>
+									<div className="text-center mb-8">
+										<div className="flex items-center justify-center gap-3 mb-4">
+											<BottleWine className="w-8 h-8 text-blue-400" />
+											<h2 className="text-3xl md:text-4xl font-serif font-bold text-white">
+												Cans Section
+											</h2>
+											<BottleWine className="w-8 h-8 text-blue-400" />
+										</div>
+										<p className="text-lg text-gray-300">
+											Grab a cold one — crisp, convenient, and refreshing.
+										</p>
+									</div>
+									<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
+										{coldDrinks.map(
+											(item) =>
+												item.id > 20 && <MenuCard key={item.id} item={item} />
+										)}
 									</div>
 								</div>
 							)}
 
 							{/* Hot Drinks Section */}
-							{selectedCategory === "drinks" && hotDrinks.length > 0 && (
+							{selectedCategory === "hBeverages" && hotDrinks.length > 0 && (
 								<div>
 									<div className="text-center mb-8">
 										<div className="flex items-center justify-center gap-3 mb-4">
@@ -568,9 +740,35 @@ export default function Menu() {
 										</p>
 									</div>
 									<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
-										{hotDrinks.map((item) => (
-											<MenuCard key={item.id} item={item} />
-										))}
+										{hotDrinks.map(
+											(item) =>
+												item.id <= 32 && <MenuCard key={item.id} item={item} />
+										)}
+									</div>
+								</div>
+							)}
+
+							{/* Tea Section */}
+							{selectedCategory === "hBeverages" && hotDrinks.length > 0 && (
+								<div>
+									<div className="text-center mb-8">
+										<div className="flex items-center justify-center gap-3 mb-4">
+											<Coffee className="w-8 h-8 text-orange-400" />
+											<h2 className="text-3xl md:text-4xl font-serif font-bold text-white">
+												Tea Section
+											</h2>
+											<Coffee className="w-8 h-8 text-orange-400" />
+										</div>
+										<p className="text-lg text-gray-300">
+											Warm, calming brews to soothe the soul and lift the
+											spirit.
+										</p>
+									</div>
+									<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
+										{hotDrinks.map(
+											(item) =>
+												item.id > 32 && <MenuCard key={item.id} item={item} />
+										)}
 									</div>
 								</div>
 							)}
@@ -581,48 +779,130 @@ export default function Menu() {
 									<>
 										{/* Cold Drinks */}
 										{coldDrinks.length > 0 && (
-											<div>
-												<div className="text-center mb-8">
-													<div className="flex items-center justify-center gap-3 mb-4">
-														<Snowflake className="w-8 h-8 text-blue-400" />
-														<h2 className="text-3xl md:text-4xl font-serif font-bold text-white">
-															Cold Drinks
-														</h2>
-														<Snowflake className="w-8 h-8 text-blue-400" />
+											<>
+												<div>
+													<div className="text-center mb-8">
+														<div className="flex items-center justify-center gap-3 mb-4">
+															<Snowflake className="w-8 h-8 text-blue-400" />
+															<h2 className="text-3xl md:text-4xl font-serif font-bold text-white">
+																Cold Drinks
+															</h2>
+															<Snowflake className="w-8 h-8 text-blue-400" />
+														</div>
+														<p className="text-lg text-gray-300">
+															Refreshing beverages and mixes to cool you down
+														</p>
 													</div>
-													<p className="text-lg text-gray-300">
-														Refreshing beverages to cool you down
-													</p>
+													<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
+														{coldDrinks.map(
+															(item) =>
+																item.id <= 14 && (
+																	<MenuCard key={item.id} item={item} />
+																)
+														)}
+													</div>
 												</div>
-												<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
-													{coldDrinks.map((item) => (
-														<MenuCard key={item.id} item={item} />
-													))}
+												<div>
+													<div className="text-center mb-8">
+														<div className="flex items-center justify-center gap-3 mb-4">
+															<Beer className="w-8 h-8 text-green-500" />
+															<h2 className="text-3xl md:text-4xl font-serif font-bold text-white">
+																Barbican (Non-Alcoholic Malt)
+															</h2>
+															<Beer className="w-8 h-8 text-green-500" />
+														</div>
+														<p className="text-lg text-gray-300">
+															beverage with a rich, unique, refreshing taste.
+														</p>
+													</div>
+													<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
+														{coldDrinks.map(
+															(item) =>
+																item.id > 14 &&
+																item.id <= 20 && (
+																	<MenuCard key={item.id} item={item} />
+																)
+														)}
+													</div>
 												</div>
-											</div>
+												{/* Cans Section */}
+
+												<div>
+													<div className="text-center mb-8">
+														<div className="flex items-center justify-center gap-3 mb-4">
+															<BottleWine className="w-8 h-8 text-blue-400" />
+															<h2 className="text-3xl md:text-4xl font-serif font-bold text-white">
+																Cans Section
+															</h2>
+															<BottleWine className="w-8 h-8 text-blue-400" />
+														</div>
+														<p className="text-lg text-gray-300">
+															Grab a cold one — crisp, convenient, and
+															refreshing.
+														</p>
+													</div>
+													<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
+														{coldDrinks.map(
+															(item) =>
+																item.id > 20 && (
+																	<MenuCard key={item.id} item={item} />
+																)
+														)}
+													</div>
+												</div>
+											</>
 										)}
 
 										{/* Hot Drinks */}
 										{hotDrinks.length > 0 && (
-											<div>
-												<div className="text-center mb-8">
-													<div className="flex items-center justify-center gap-3 mb-4">
-														<Coffee className="w-8 h-8 text-orange-400" />
-														<h2 className="text-3xl md:text-4xl font-serif font-bold text-white">
-															Hot Drinks
-														</h2>
-														<Coffee className="w-8 h-8 text-orange-400" />
+											<>
+												<div>
+													<div className="text-center mb-8">
+														<div className="flex items-center justify-center gap-3 mb-4">
+															<Coffee className="w-8 h-8 text-orange-400" />
+															<h2 className="text-3xl md:text-4xl font-serif font-bold text-white">
+																Hot Drinks
+															</h2>
+															<Coffee className="w-8 h-8 text-orange-400" />
+														</div>
+														<p className="text-lg text-gray-300">
+															Warm beverages to comfort and energize
+														</p>
 													</div>
-													<p className="text-lg text-gray-300">
-														Warm beverages to comfort and energize
-													</p>
+													<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
+														{hotDrinks.map(
+															(item) =>
+																item.id <= 32 && (
+																	<MenuCard key={item.id} item={item} />
+																)
+														)}
+													</div>
 												</div>
-												<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
-													{hotDrinks.map((item) => (
-														<MenuCard key={item.id} item={item} />
-													))}
+
+												<div>
+													<div className="text-center mb-8">
+														<div className="flex items-center justify-center gap-3 mb-4">
+															<Coffee className="w-8 h-8 text-orange-400" />
+															<h2 className="text-3xl md:text-4xl font-serif font-bold text-white">
+																Tea Section
+															</h2>
+															<Coffee className="w-8 h-8 text-orange-400" />
+														</div>
+														<p className="text-lg text-gray-300">
+															Warm, calming brews to soothe the soul and lift
+															the spirit.
+														</p>
+													</div>
+													<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
+														{hotDrinks.map(
+															(item) =>
+																item.id > 32 && (
+																	<MenuCard key={item.id} item={item} />
+																)
+														)}
+													</div>
 												</div>
-											</div>
+											</>
 										)}
 									</>
 								)}
@@ -686,38 +966,38 @@ const MenuCard = ({ item }: { item: MenuItem }) => {
 				/>
 			</div>
 
-			<CardContent className="p-6">
+			<CardContent className="p-3 ">
 				<div className="flex justify-between items-start mb-3">
 					{item.name === "Barbican" ? (
-						<h3 className="text-xl font-serif font-semibold text-gray-900">
+						<h3 className="text-lg font-mono font-semibold text-gray-900">
 							{item.name}{" "}
 							<span className="text-sm text-gray-700 ml-1">
 								( we have several flavors )
 							</span>
 						</h3>
 					) : (
-						<h3 className="text-xl font-serif font-semibold text-gray-900">
+						<h3 className="text-lg font-mono font-semibold text-gray-900">
 							{item.name}
 						</h3>
 					)}
 
 					{item.category === "shisha" ? (
-						<span className="font-bold text-lg text-[#2b347b]">
-							${item.price.toFixed(2)}
+						<span className="font-semibold text-xl font-serif text-[#2b347b]">
+							$ {item.price.toFixed(2)}
 						</span>
 					) : (
 						<></>
 					)}
 				</div>
 
-				<p className="text-gray-600 text-[12.5px] sm:text-sm leading-relaxed mb-4 line-clamp-3">
+				<p className="text-gray-600 text-[12.5px] font-extrabold font-serif sm:text-sm leading-relaxed mb-4 line-clamp-3">
 					{item.description}
 				</p>
 
 				{item.category === "shisha" && (
 					<Button
 						onClick={() => setShowDetails(!showDetails)}
-						className="w-full bg-[#2b347b] hover:bg-[#2b347b]/90 text-white transition-all duration-300"
+						className="w-full font-light font-mono bg-[#2b347b] hover:bg-[#2b347b]/90 text-white transition-all duration-300"
 					>
 						<Flame className="w-4 h-4 mr-2" />
 						Show Flavours
@@ -727,7 +1007,7 @@ const MenuCard = ({ item }: { item: MenuItem }) => {
 
 			{/* Detailed View Overlay - Only for Shisha */}
 			{showDetails && item.category === "shisha" && (
-				<div className="absolute  inset-0 bg-[#2b347b] z-20 flex flex-col p-3 animate-in slide-in-from-bottom duration-300 hide-scrollbar overflow-y-auto">
+				<div className="absolute  inset-0 bg-[#1c2254] z-20 flex flex-col p-3 animate-in slide-in-from-bottom duration-300 hide-scrollbar overflow-y-auto">
 					<Button
 						variant="ghost"
 						size="sm"
@@ -745,13 +1025,14 @@ const MenuCard = ({ item }: { item: MenuItem }) => {
 
 const DetailedView = ({ item }: { item: MenuItem }) => {
 	const categoryColors: Record<string, string> = {
-		"Regular Flavours": "text-green-300",
-		"Premium Flavours": "text-purple-300",
-		"Special Flavours": "text-orange-300",
+		"🌿 Classic Flavours": "text-green-300",
+		"🍁 Special Flavours": "text-red-300",
+		"💡 Lit Series": "text-yellow-500",
+		"✨ Premium Flavours": "text-purple-300",
 	};
 
 	return (
-		<div className="text-white space-y-4  max-h-[86%] overflow-y-auto hide-scrollbar">
+		<div className="text-white  space-y-4  max-h-[86%] overflow-y-auto hide-scrollbar">
 			{/* Available Add-ons Section */}
 			<div>
 				<h4 className="font-bold text-base mb-3 text-blue-300 flex items-center">
@@ -766,9 +1047,11 @@ const DetailedView = ({ item }: { item: MenuItem }) => {
 						>
 							<div className="flex items-center">
 								<div className="w-2 h-2 rounded-full bg-blue-300 mr-3"></div>
-								<span className="font-medium text-white">{addon.name}</span>
+								<span className="font-medium text-white font-serif">
+									{addon.name}
+								</span>
 							</div>
-							<span className="font-bold text-blue-300">+${addon.price}</span>
+							<span className="font-bold text-blue-300 ">+${addon.price}</span>
 						</div>
 					))}
 				</div>
@@ -784,7 +1067,7 @@ const DetailedView = ({ item }: { item: MenuItem }) => {
 					{flavours.map((group: FlavourGroup) => (
 						<div key={group.category}>
 							<h5
-								className={` text-sm font-extrabold uppercase tracking-wider mb-2 ${
+								className={` text-sm font-serif font-semibold uppercase tracking-wider mb-2 ${
 									categoryColors[group.category] || "text-blue-300"
 								}`}
 							>
@@ -794,9 +1077,18 @@ const DetailedView = ({ item }: { item: MenuItem }) => {
 								{group.items.map((flavour: Flavour) => (
 									<div
 										key={flavour.name}
-										className="bg-white/10 rounded-lg px-3 py-2 hover:bg-white/20 transition-colors "
+										className={`bg-gradient-to-t ${
+											group.category === "🌿 Classic Flavours" && "to-teal-900"
+										} ${
+											group.category === "🍁 Special Flavours" && "to-red-900"
+										} ${
+											group.category === "💡 Lit Series" && "to-yellow-900"
+										} ${
+											group.category === "✨ Premium Flavours" &&
+											"to-purple-900"
+										}  rounded-sm px-3 py-2 hover:bg-white/20 transition-colors `}
 									>
-										<span className="font-medium text-sm text-white">
+										<span className="font-medium font-mono text-sm text-white">
 											{flavour.name}
 										</span>
 										{flavour.description && (
@@ -809,9 +1101,9 @@ const DetailedView = ({ item }: { item: MenuItem }) => {
 							</div>
 						</div>
 					))}
-					<div className="my-3 font-sans text-yellow-500 uppercase text-sm">
+					<div className="my-3 font-mono text-white uppercase text-sm">
 						<span className="text-xl text-red-800">*</span> You can add your own
-						mixes <span className="text-xl text-red-800">*</span>
+						mixes
 					</div>
 				</div>
 			</div>
