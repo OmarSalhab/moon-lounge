@@ -675,7 +675,7 @@ export default function Menu() {
 													</div>
 													<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
 														{coldDrinks.map((item) => (
-															<MenuCard key={item.id} item={item} />
+															item.id < 24 && <MenuCard key={item.id} item={item} />
 														))}
 													</div>
 												</div>
