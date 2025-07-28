@@ -3,7 +3,7 @@ import { MapPin, Clock, Phone, Mail } from "lucide-react";
 export default function Location() {
 	return (
 		<section className="py-20 px-4" id="location">
-			<div className="max-w-7xl mx-auto">
+			<div className="max-w-6xl mx-auto">
 				<div className="text-center mb-16">
 					<h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6">
 						Visit Us

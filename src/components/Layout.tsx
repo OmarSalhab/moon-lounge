@@ -25,7 +25,7 @@ export default function Layout({ children }: { children: ReactNode }) {
 			<Navigation />
 
 			{/* Page Content */}
-			<main className="p-1">{children}</main>
+			<main className="p-1 flex md:block">{children}</main>
 		</div>
 	);
 }
