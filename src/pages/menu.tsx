@@ -1,13 +1,5 @@
 import { useState } from "react";
-import {
-	Plus,
-	Star,
-	Flame,
-	Snowflake,
-	Coffee,
-	BottleWine,
-	Beer,
-} from "lucide-react";
+import { Plus, Star, Flame, Snowflake, Coffee, Beer } from "lucide-react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -71,6 +63,17 @@ const menuItems: MenuItem[] = [
 	{
 		id: 2,
 		category: "shisha",
+		name: "Amotion Valve Hookah",
+		price: 34.99,
+		description:
+			"Discover effortless clouds and perfect airflow with the Amotion Valve. A must-try for those who crave a flawless shisha experience.",
+		image: "/amotion-valve-hookah.png",
+		flavours: ["Mint", "Double Apple", "Grape", "Lemon"],
+		bestSeller: false,
+	},
+	{
+		id: 3,
+		category: "shisha",
 		name: "Vyro Versa Hookah",
 		price: 29.99,
 		description:
@@ -80,7 +83,7 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 3,
+		id: 4,
 		category: "shisha",
 		name: "Aladin MVP Hookah",
 		price: 29.99,
@@ -91,24 +94,13 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 4,
+		id: 5,
 		category: "shisha",
 		name: "Alpha Hookah",
 		price: 29.99,
 		description:
 			"Treat yourself to a luxurious session with the Alpha Hookah. Known for its ultra-smooth draw and unique purge, it’s a favorite for a reason.",
 		image: "/alpha-hookah.png",
-		flavours: ["Mint", "Double Apple", "Grape", "Lemon"],
-		bestSeller: false,
-	},
-	{
-		id: 5,
-		category: "shisha",
-		name: "Amotion Valve Hookah",
-		price: 34.99,
-		description:
-			"Discover effortless clouds and perfect airflow with the Amotion Valve. A must-try for those who crave a flawless shisha experience.",
-		image: "/amotion-valve-hookah.png",
 		flavours: ["Mint", "Double Apple", "Grape", "Lemon"],
 		bestSeller: false,
 	},
@@ -130,7 +122,7 @@ const menuItems: MenuItem[] = [
 		price: 49.99,
 		description:
 			"Elevate your night with our exclusive Moon Special. (Premium hookah, Pineapple head, ice hose, LED lights), and a session you’ll remember.",
-		image: "/moon-special1.jpg",
+		image: "/moon_speacial.jpg",
 		flavours: ["Mint", "Double Apple", "Grape", "Lemon"],
 		bestSeller: false,
 	},
@@ -139,11 +131,11 @@ const menuItems: MenuItem[] = [
 		id: 8,
 		category: "cBeverages",
 		drinkType: "cold",
-		name: "Blueberry Redbull Summer Edition",
+		name: "Blue Redbull Summer Edition",
 		price: 9.0,
 		description:
 			"Limited summer edition with refreshing blueberry flavor. A fruity twist on the classic energy drink.",
-		image: "/bluberry-redbull.jpg",
+		image: "/blue-redbull.jpg",
 		bestSeller: false,
 	},
 	{
@@ -194,11 +186,11 @@ const menuItems: MenuItem[] = [
 		id: 13,
 		category: "cBeverages",
 		drinkType: "cold",
-		name: "Blueberry Mojito Summer Edition",
+		name: "Blue Mojito Summer Edition",
 		price: 14.0,
 		description:
 			"A zesty twist on the classic! Fresh mint, tangy lime, and juicy blueberries come together with a splash of soda for the ultimate summer refreshment.",
-		image: "/Blueberry-Mojito-4.jpg",
+		image: "/blue_mojito.jpg",
 		bestSeller: false,
 	},
 	{
@@ -218,72 +210,16 @@ const menuItems: MenuItem[] = [
 		id: 15,
 		category: "cBeverages",
 		drinkType: "cold",
-		name: "Barbican Raspberry",
+		name: "Barbican",
 		price: 8.0,
 		description:
 			"Non-alcoholic malt beverage with a rich, refreshing taste. Perfect complement to your hookah session.",
-		image: "/barbican-raspberry-flavour.jpg",
+		image: "/barbican_classic.jpg",
 		bestSeller: false,
 	},
-	{
-		id: 16,
-		category: "cBeverages",
-		drinkType: "cold",
-		name: "Barbican Peach",
-		price: 8,
-		description:
-			"Non-alcoholic malt beverage with a rich, refreshing taste. Perfect complement to your hookah session.",
-		image: "/Barbican_Peach.jpg",
-		bestSeller: false,
-	},
-	{
-		id: 17,
-		category: "cBeverages",
-		drinkType: "cold",
-		name: "Barbican Pineapple",
-		price: 8,
-		description:
-			"Non-alcoholic malt beverage with a rich, refreshing taste. Perfect complement to your hookah session.",
-		image: "/barbican_pineapple.jpg",
-		bestSeller: false,
-	},
-	{
-		id: 18,
-		category: "cBeverages",
-		drinkType: "cold",
-		name: "Barbican Pomegranate",
-		price: 8,
-		description:
-			"Non-alcoholic malt beverage with a rich, refreshing taste. Perfect complement to your hookah session.",
-		image: "/barbican_pomegranate.jpg",
-		bestSeller: false,
-	},
-	{
-		id: 19,
-		category: "cBeverages",
-		drinkType: "cold",
-		name: "Barbican Apple",
-		price: 8,
-		description:
-			"Non-alcoholic malt beverage with a rich, refreshing taste. Perfect complement to your hookah session.",
-		image: "/barbican_apple.jpg",
-		bestSeller: false,
-	},
-	{
-		id: 20,
-		category: "cBeverages",
-		drinkType: "cold",
-		name: "Barbican Strawberry",
-		price: 8,
-		description:
-			"Non-alcoholic malt beverage with a rich, refreshing taste. Perfect complement to your hookah session.",
-		image: "/Barbican_strawberry.jpg",
-		bestSeller: false,
-	},
-
 	//Cans beverages
 	{
-		id: 21,
+		id: 16,
 		category: "cBeverages",
 		drinkType: "cold",
 		name: "Redbull",
@@ -295,7 +231,7 @@ const menuItems: MenuItem[] = [
 	},
 
 	{
-		id: 22,
+		id: 17,
 		category: "cBeverages",
 		drinkType: "cold",
 		name: "Nestea",
@@ -306,18 +242,18 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 23,
+		id: 18,
 		category: "cBeverages",
 		drinkType: "cold",
 		name: "Coca Cola",
 		price: 5.0,
 		description:
 			"The classic cola experience. Crisp, refreshing, and the perfect companion to any meal.",
-		image: "/Coca_Cola_Flasche_-_Original_Taste.jpg",
+		image: "/cocacola.jpg",
 		bestSeller: false,
 	},
 	{
-		id: 24,
+		id: 19,
 		category: "cBeverages",
 		drinkType: "cold",
 		name: "Diet Coke",
@@ -328,7 +264,7 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 25,
+		id: 20,
 		category: "cBeverages",
 		drinkType: "cold",
 		name: "Orange Crush",
@@ -339,7 +275,7 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 26,
+		id: 21,
 		category: "cBeverages",
 		drinkType: "cold",
 		name: "Sprite",
@@ -350,7 +286,7 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 27,
+		id: 22,
 		category: "cBeverages",
 		drinkType: "cold",
 		name: "Canada Dry",
@@ -361,7 +297,7 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 28,
+		id: 23,
 		category: "cBeverages",
 		drinkType: "cold",
 		name: "Water",
@@ -374,7 +310,7 @@ const menuItems: MenuItem[] = [
 
 	// Hot Drinks
 	{
-		id: 29,
+		id: 24,
 		category: "hBeverages",
 		drinkType: "hot",
 		name: "Espresso",
@@ -385,7 +321,7 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 30,
+		id: 25,
 		category: "hBeverages",
 		drinkType: "hot",
 		name: "Cappuccino",
@@ -396,7 +332,7 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 31,
+		id: 26,
 		category: "hBeverages",
 		drinkType: "hot",
 		name: "Turkish Coffee",
@@ -407,7 +343,7 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 32,
+		id: 27,
 		category: "hBeverages",
 		drinkType: "hot",
 		name: "Nescafé 3 in 1",
@@ -418,7 +354,7 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 33,
+		id: 28,
 		category: "hBeverages",
 		drinkType: "hot",
 		name: "Black Tea",
@@ -429,7 +365,7 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 34,
+		id: 29,
 		category: "hBeverages",
 		drinkType: "hot",
 		name: "Green Tea",
@@ -440,7 +376,7 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 35,
+		id: 30,
 		category: "hBeverages",
 		drinkType: "hot",
 		name: "Peppermint Tea",
@@ -451,7 +387,7 @@ const menuItems: MenuItem[] = [
 		bestSeller: false,
 	},
 	{
-		id: 36,
+		id: 31,
 		category: "hBeverages",
 		drinkType: "hot",
 		name: "Teapot (Serves 4)",
@@ -529,16 +465,10 @@ const flavours: FlavourGroup[] = [
 			{ name: "Pinkman" },
 			{ name: "Kiwi Smoothie" },
 			{ name: "Tropic Juice" },
-			{ name: "Blackberry" },
-			{ name: "Raspberry" },
-			{ name: "Strawberry Lychee" },
 			{ name: "Lemon Lime" },
 			{ name: "Orange Team" },
-			{ name: "Melonade" },
-			{ name: "Forest Berries" },
 			{ name: "Cola" },
 			{ name: "Citrus God" },
-			{ name: "Chocolicious" },
 			{ name: "Super Mint Ultra Nova (Ice)" },
 		],
 	},
@@ -667,59 +597,9 @@ export default function Menu() {
 										</p>
 									</div>
 									<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
-										{coldDrinks.map(
-											(item) =>
-												item.id <= 14 && <MenuCard key={item.id} item={item} />
-										)}
-									</div>
-								</div>
-							)}
-
-							{/* Barbican Section */}
-							{selectedCategory === "cBeverages" && coldDrinks.length > 0 && (
-								<div>
-									<div className="text-center mb-8">
-										<div className="flex items-center justify-center gap-3 mb-4">
-											<Beer className="w-8 h-8 text-green-500" />
-											<h2 className="text-3xl md:text-4xl font-serif font-bold text-white">
-												Barbican (Non-Alcoholic Malt)
-											</h2>
-											<Beer className="w-8 h-8 text-green-500" />
-										</div>
-										<p className="text-lg text-gray-300">
-											beverage with a rich, unique, refreshing taste.
-										</p>
-									</div>
-									<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
-										{coldDrinks.map(
-											(item) =>
-												item.id > 14 &&
-												item.id <= 20 && <MenuCard key={item.id} item={item} />
-										)}
-									</div>
-								</div>
-							)}
-
-							{/* Cans Section */}
-							{selectedCategory === "cBeverages" && coldDrinks.length > 0 && (
-								<div>
-									<div className="text-center mb-8">
-										<div className="flex items-center justify-center gap-3 mb-4">
-											<BottleWine className="w-8 h-8 text-blue-400" />
-											<h2 className="text-3xl md:text-4xl font-serif font-bold text-white">
-												Cans Section
-											</h2>
-											<BottleWine className="w-8 h-8 text-blue-400" />
-										</div>
-										<p className="text-lg text-gray-300">
-											Grab a cold one — crisp, convenient, and refreshing.
-										</p>
-									</div>
-									<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
-										{coldDrinks.map(
-											(item) =>
-												item.id > 20 && <MenuCard key={item.id} item={item} />
-										)}
+										{coldDrinks.map((item) => (
+											<MenuCard key={item.id} item={item} />
+										))}
 									</div>
 								</div>
 							)}
@@ -742,7 +622,7 @@ export default function Menu() {
 									<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
 										{hotDrinks.map(
 											(item) =>
-												item.id <= 32 && <MenuCard key={item.id} item={item} />
+												item.id < 28 && <MenuCard key={item.id} item={item} />
 										)}
 									</div>
 								</div>
@@ -767,7 +647,7 @@ export default function Menu() {
 									<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
 										{hotDrinks.map(
 											(item) =>
-												item.id > 32 && <MenuCard key={item.id} item={item} />
+												item.id >= 28 && <MenuCard key={item.id} item={item} />
 										)}
 									</div>
 								</div>
@@ -794,60 +674,9 @@ export default function Menu() {
 														</p>
 													</div>
 													<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
-														{coldDrinks.map(
-															(item) =>
-																item.id <= 14 && (
-																	<MenuCard key={item.id} item={item} />
-																)
-														)}
-													</div>
-												</div>
-												<div>
-													<div className="text-center mb-8">
-														<div className="flex items-center justify-center gap-3 mb-4">
-															<Beer className="w-8 h-8 text-green-500" />
-															<h2 className="text-3xl md:text-4xl font-serif font-bold text-white">
-																Barbican (Non-Alcoholic Malt)
-															</h2>
-															<Beer className="w-8 h-8 text-green-500" />
-														</div>
-														<p className="text-lg text-gray-300">
-															beverage with a rich, unique, refreshing taste.
-														</p>
-													</div>
-													<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
-														{coldDrinks.map(
-															(item) =>
-																item.id > 14 &&
-																item.id <= 20 && (
-																	<MenuCard key={item.id} item={item} />
-																)
-														)}
-													</div>
-												</div>
-												{/* Cans Section */}
-
-												<div>
-													<div className="text-center mb-8">
-														<div className="flex items-center justify-center gap-3 mb-4">
-															<BottleWine className="w-8 h-8 text-blue-400" />
-															<h2 className="text-3xl md:text-4xl font-serif font-bold text-white">
-																Cans Section
-															</h2>
-															<BottleWine className="w-8 h-8 text-blue-400" />
-														</div>
-														<p className="text-lg text-gray-300">
-															Grab a cold one — crisp, convenient, and
-															refreshing.
-														</p>
-													</div>
-													<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
-														{coldDrinks.map(
-															(item) =>
-																item.id > 20 && (
-																	<MenuCard key={item.id} item={item} />
-																)
-														)}
+														{coldDrinks.map((item) => (
+															<MenuCard key={item.id} item={item} />
+														))}
 													</div>
 												</div>
 											</>
@@ -859,11 +688,11 @@ export default function Menu() {
 												<div>
 													<div className="text-center mb-8">
 														<div className="flex items-center justify-center gap-3 mb-4">
-															<Coffee className="w-8 h-8 text-orange-400" />
+															<Coffee className="w-8 h-8 text-orange-300" />
 															<h2 className="text-3xl md:text-4xl font-serif font-bold text-white">
 																Hot Drinks
 															</h2>
-															<Coffee className="w-8 h-8 text-orange-400" />
+															<Coffee className="w-8 h-8 text-orange-300" />
 														</div>
 														<p className="text-lg text-gray-300">
 															Warm beverages to comfort and energize
@@ -872,7 +701,7 @@ export default function Menu() {
 													<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
 														{hotDrinks.map(
 															(item) =>
-																item.id <= 32 && (
+																item.id < 28 && (
 																	<MenuCard key={item.id} item={item} />
 																)
 														)}
@@ -882,11 +711,11 @@ export default function Menu() {
 												<div>
 													<div className="text-center mb-8">
 														<div className="flex items-center justify-center gap-3 mb-4">
-															<Coffee className="w-8 h-8 text-orange-400" />
+															<Coffee className="w-8 h-8 text-orange-700" />
 															<h2 className="text-3xl md:text-4xl font-serif font-bold text-white">
 																Tea Section
 															</h2>
-															<Coffee className="w-8 h-8 text-orange-400" />
+															<Coffee className="w-8 h-8 text-orange-700" />
 														</div>
 														<p className="text-lg text-gray-300">
 															Warm, calming brews to soothe the soul and lift
@@ -896,7 +725,7 @@ export default function Menu() {
 													<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
 														{hotDrinks.map(
 															(item) =>
-																item.id > 32 && (
+																item.id >= 28 && (
 																	<MenuCard key={item.id} item={item} />
 																)
 														)}
@@ -927,8 +756,8 @@ const MenuCard = ({ item }: { item: MenuItem }) => {
 		<Card className="relative w-full max-w-sm mx-auto overflow-hidden bg-gray-50 text-gray-950 border border-white/20 hover:shadow-xl transition-all duration-300">
 			{/* Best Seller Badge */}
 			{item.bestSeller && (
-				<div className="absolute top-3 left-2 z-10">
-					<Badge className="bg-red-500 text-white transform -rotate-12 shadow-lg animate-pulse">
+				<div className="absolute top-2 left-2 z-10">
+					<Badge className="bg-red-600 text-white transform shadow-lg animate-pulse">
 						<Star className="w-3 h-3 mr-1 fill-current" />
 						Best Seller
 					</Badge>
@@ -994,7 +823,7 @@ const MenuCard = ({ item }: { item: MenuItem }) => {
 					{item.description}
 				</p>
 
-				{item.category === "shisha" && (
+				{(item.category === "shisha" || item.name === "Barbican") && (
 					<Button
 						onClick={() => setShowDetails(!showDetails)}
 						className="w-full font-light font-mono bg-[#2b347b] hover:bg-[#2b347b]/90 text-white transition-all duration-300"
@@ -1019,10 +848,61 @@ const MenuCard = ({ item }: { item: MenuItem }) => {
 					<DetailedView item={item} />
 				</div>
 			)}
+			{/* Detailed View Overlay - Only for Barbican */}
+			{showDetails && item.name === "Barbican" && (
+				<div className="absolute  inset-0 bg-[#1c2254] z-20 flex flex-col p-3 animate-in slide-in-from-bottom duration-300 hide-scrollbar overflow-y-auto">
+					<Button
+						variant="ghost"
+						size="sm"
+						className="self-end mb-2 text-white hover:text-[#2b347b] hover:bg-white/90 rounded-full w-8 h-8 p-0"
+						onClick={() => setShowDetails(false)}
+					>
+						✕
+					</Button>
+					<DetailViewBarbican item={item} />
+				</div>
+			)}
 		</Card>
 	);
 };
 
+const DetailViewBarbican = ({ item }: { item: MenuItem }) => {
+	const barbicanFlavours: string[] = [
+		"Barbican Pineapple",
+		"Barbican Pomegranate",
+		"Barbican Peach",
+		"Barbican Apple",
+		"Barbican Strawberry",
+		"Barbican Raspberry",
+	];
+	return (
+		<div className="text-white  space-y-4  max-h-[86%] overflow-y-auto hide-scrollbar">
+			{/* Available Flavours Section */}
+			<div>
+				<h4 className="font-bold text-base mb-3 text-blue-300 flex items-center">
+					<Beer className="w-4 h-4 mr-2" />
+					Available Flavours
+				</h4>
+				<div className="space-y-2">
+					{barbicanFlavours.map((barbicanFlavour: string, idx) => (
+						<div
+							key={idx}
+							className="flex items-center justify-between p-3 rounded-lg bg-white/10 border border-white/20"
+						>
+							<div className="flex items-center">
+								<div className="w-2 h-2 rounded-full bg-blue-300 mr-3"></div>
+								<span className="font-medium text-white font-serif">
+									{barbicanFlavour}
+								</span>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+			<hr className="bg-gray-950 w-48 " />
+		</div>
+	);
+};
 const DetailedView = ({ item }: { item: MenuItem }) => {
 	const categoryColors: Record<string, string> = {
 		"🌿 Classic Flavours": "text-green-300",
