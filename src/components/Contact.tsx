@@ -68,7 +68,7 @@ export default function Contact() {
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center">
           <p className="text-gray-400">
-            © 2024 Moon Lounge Toronto. All rights reserved. | Experience where premium shisha meets luxury.
+            © 2025 ViboTech. All rights Reserved.
           </p>
         </div>
       </div>
