@@ -19,13 +19,12 @@ const inter = Inter({
 export default function Layout({ children }: { children: ReactNode }) {
 	return (
 		<div
-			className={`${playfair.variable} ${inter.variable} font-sans `}
+			className={`inline-flex flex-col md:block ${playfair.variable} ${inter.variable} font-sans `}
 		>
 			{/* Header / Navbar */}
 			<Navigation />
-
 			{/* Page Content */}
-			<main className="p-1 flex md:block">{children}</main>
+			<main>{children}</main>
 		</div>
 	);
 }

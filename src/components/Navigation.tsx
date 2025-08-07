@@ -18,10 +18,8 @@ export default function Navigation() {
 						<Image
 							src="/downloadfile.png"
 							alt="Moon Lounge Logo"
-							width={240}
-							height={80}
-							className="sm:h-20 h-16 w-auto"
-							priority
+							width={150}
+							height={85}
 							quality={100}
 						/>
 					</Link>
