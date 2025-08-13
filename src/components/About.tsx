@@ -50,9 +50,9 @@ export default function About() {
 								src="/moon-shop.jpg"
 								alt="Moon Lounge Toronto luxury hookah lounge interior with premium shisha setup"
 								className="w-full h-96 object-fill rounded-2xl"
-								loading="lazy"
-								width="600"
-								height="400"
+								width="200"
+								height="300"
+								priority
 							/>
 						</div>
 					</div>

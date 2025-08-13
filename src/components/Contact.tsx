@@ -68,7 +68,7 @@ export default function Contact() {
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center">
           <p className="text-gray-400">
-            © 2025 QudraSoft. All rights Reserved.
+            © 2025 Solvenear. All rights Reserved.
           </p>
         </div>
       </div>

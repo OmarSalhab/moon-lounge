@@ -21,6 +21,8 @@ export default function Navigation() {
 							width={150}
 							height={85}
 							quality={100}
+							priority
+							style={{ width: "auto", height: "auto" }}
 						/>
 					</Link>
 
