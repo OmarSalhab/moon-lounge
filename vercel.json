@@ -1,0 +1,16 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "menu2.moonloungeto.ca"
+        }
+      ],
+      "destination": "https://www.moonloungeto.ca/menu",
+      "permanent": true
+    }
+  ]
+}
