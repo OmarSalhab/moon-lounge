@@ -463,13 +463,10 @@ const flavours: FlavourGroup[] = [
 			{ name: "Berry Lychee Blast" },
 			{ name: "Ice Lemon Mint" },
 			{ name: "Pinkman" },
-			{ name: "Kiwi Smoothie" },
-			{ name: "Tropic Juice" },
-			{ name: "Lemon Lime" },
-			{ name: "Orange Team" },
-			{ name: "Cola" },
 			{ name: "Citrus God" },
-			{ name: "Super Mint Ultra Nova (Ice)" },
+			{ name: "Cola" },
+			{ name: "Lime Cola" },
+			{ name: "Sprite" },
 		],
 	},
 ];
@@ -674,9 +671,12 @@ export default function Menu() {
 														</p>
 													</div>
 													<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
-														{coldDrinks.map((item) => (
-															item.id < 24 && <MenuCard key={item.id} item={item} />
-														))}
+														{coldDrinks.map(
+															(item) =>
+																item.id < 24 && (
+																	<MenuCard key={item.id} item={item} />
+																)
+														)}
 													</div>
 												</div>
 											</>
